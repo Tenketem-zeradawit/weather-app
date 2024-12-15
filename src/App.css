@@ -1,0 +1,102 @@
+/* General Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  background: url("field-bright-yellow-rapeseed-spring.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+}
+
+
+.weather {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); 
+}
+
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+
+input.form-control {
+  
+  background: transparent;
+  color: #ffffff5b;
+  border: 3px solid #fffefe;
+ 
+  text-align: center;
+  width: 300px;
+  height: 40px;
+  border-radius: 40px;
+ 
+  
+}
+.inpt{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+/* Button */
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Weather Information */
+h2 {
+  font-size: 3rem;
+  margin: 10px 0;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+.feels {
+  
+  transform: rotate(270deg);
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+.humidity{
+  border-radius: 10px;
+  width: 98%;
+  padding: 50px;
+  background-color: rgba(43, 41, 41, 0.437);
+display: flex;
+justify-content: space-between;
+margin-top: 150px;
+
+}
+/* Weather Details */
+.humidity p {
+  margin: 5px 0;
+  font-size: 1rem;
+  font-weight: 300;
+}
+.right{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Align Text to Center */
+.text-center {
+  text-align: center;
+}
