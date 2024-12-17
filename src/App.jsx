@@ -3,15 +3,14 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
- 
   const [query, setQuery] = useState(""); 
   const [articles, setArticles] = useState([]); 
   const [loading, setLoading] = useState(false); 
-  const [error, setError] = useState("");
+  const [error, setError] = useState(""); 
 
-  
-  const API_KEY = "7689c1342169450bb5bd111f1d2fd245";
-  const API_URL = "https://newsapi.org/v2/everything?q=technology&apiKey=7689c1342169450bb5bd111f1d2fd245";
+  const API_KEY = "7689c1342169450bb5bd111f1d2fd245"; 
+  const API_URL = "https://newsapi.org/v2/everything";
+
   const fetchNews = async () => {
     if (!query) {
       setError("Please enter a search query!");
@@ -19,14 +18,14 @@ const App = () => {
     }
 
     setLoading(true);
-    setError(""); 
+    setError("");
 
     try {
       const response = await axios.get(API_URL, {
         params: {
-          q: query,
+          q: query, 
           apiKey: API_KEY,
-          pageSize: 6, 
+          pageSize: 6,
         },
       });
 
@@ -37,11 +36,13 @@ const App = () => {
         setError("No articles found for the given search query.");
       }
     } catch (err) {
+      console.error(err);
       setError("Error fetching data. Please try again later.");
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
+
   const handleSearch = (e) => {
     e.preventDefault();
     fetchNews();
@@ -55,7 +56,7 @@ const App = () => {
         <input
           type="text"
           className="form-control me-2"
-          placeholder="Search for news..."
+          placeholder="Search for news on any topic..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
@@ -64,17 +65,15 @@ const App = () => {
         </button>
       </form>
 
-    
       {loading && <div className="text-center">Loading...</div>}
 
       {error && <div className="alert alert-danger">{error}</div>}
 
-   
       <div className="row">
         {articles.map((article, index) => (
           <div key={index} className="col-md-4 mb-4">
             <div className="card h-100">
-             
+
               <img
                 src={
                   article.urlToImage
@@ -85,6 +84,7 @@ const App = () => {
                 alt={article.title}
               />
 
+          
               <div className="card-body d-flex flex-column">
                 <h5 className="card-title">{article.title}</h5>
                 <p className="card-text">
@@ -106,7 +106,6 @@ const App = () => {
           </div>
         ))}
       </div>
-
       {!loading && articles.length === 0 && !error && (
         <div className="text-center">No news articles to display.</div>
       )}
